@@ -1,3 +1,13 @@
 /* 
     General Styles
 */
+
+.imagen{
+    height: min(400px);
+    width: 300px;
+    object-fit: cover;
+}
+
+.heart{
+    color: red;
+}

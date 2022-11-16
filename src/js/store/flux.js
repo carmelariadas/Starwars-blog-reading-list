@@ -1,18 +1,8 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			favoritos: [],
+			
 		},
 		actions: {
 			// Use getActions to call a function within a fuction
@@ -37,7 +27,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			
+			addFavorito: (fav) => {
+				const store = getStore();
+				// const nuevoFavoritos = store.favoritos.concat(fav)
+				const nuevoFavoritos = [...store.favoritos, fav]
+				setStore({favoritos: nuevoFavoritos})
+			},
+
+			deleteFavorito: (fav) => {
+				const store = getStore();
+				const nuevoFavoritos = store.favoritos.splice(fav, 1)
+				
+				setStore({favoritos: store.favoritos})
 			}
+			
+
 		}
 	};
 };

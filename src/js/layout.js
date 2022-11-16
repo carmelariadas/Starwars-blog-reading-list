@@ -5,6 +5,9 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
+import { SingleCharacter } from "./views/singlecharacter";
+import { SinglePlanet } from "./views/singleplanet";
+import { SingleVehicle } from "./views/singlevehicle";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -20,7 +23,7 @@ const Layout = () => {
 		<div>
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
+				<Navbar />
 					<Switch>
 						<Route exact path="/">
 							<Home />
@@ -28,8 +31,14 @@ const Layout = () => {
 						<Route exact path="/demo">
 							<Demo />
 						</Route>
-						<Route exact path="/single/:theid">
-							<Single />
+						<Route exact path="/single/people/:id">
+							<SingleCharacter />
+						</Route>
+						<Route exact path="/single/planets/:id">
+							<SinglePlanet />
+						</Route>
+						<Route exact path="/single/vehicles/:id">
+							<SingleVehicle />
 						</Route>
 						<Route>
 							<h1>Not found!</h1>
